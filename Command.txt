@@ -1,0 +1,14 @@
+ # CMD axonserver: vô thẳng folder axonserver
+	java -jar axonserver.jar
+# CMD Kafka: tạm thời k xài được trên máy mik 
+	kafka-topics.bat --list --bootstrap-server localhost:9092	
+	zookeeper-server-start.bat C:\kafka\config\zookeeper.properties
+
+	kafka-server-start.bat C:\kafka_2.13-3.2.0\config\server.properties
+	kafka-server-start.bat C:\kafka\config\server.properties
+# docker kafka: https://viblo.asia/p/cach-cai-dat-kafka-don-gian-su-dung-docker-compose-3kY4gAnlLAe
+		create folder docker -> kafka.yml
+		docker-compose -f kafka.yml up -d (để up file yml)
+		docker ps	
+	https://www.kafkatool.com/download.html (tải kafka tool về để tạo topic)
+	
