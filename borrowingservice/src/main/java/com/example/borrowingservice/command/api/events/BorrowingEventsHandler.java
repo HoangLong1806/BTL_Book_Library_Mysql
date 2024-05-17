@@ -10,6 +10,8 @@ import com.example.borrowingservice.command.api.data.Borrowing;
 //import com.example.borrowingservice.command.api.model.Message;
 //import com.example.borrowingservice.command.api.service.BorrowService;
 //import com.example.borrowingservice.command.api.service.IBorrowService;
+import com.example.borrowingservice.command.api.model.Message;
+import com.example.borrowingservice.command.api.service.IBorrowService;
 
 @Component
 public class BorrowingEventsHandler {
@@ -17,8 +19,8 @@ public class BorrowingEventsHandler {
 	@Autowired
 	private BorrowRepository borrowRepository;
 	
-//	@Autowired
-//	private IBorrowService borrowService;
+	@Autowired
+	private IBorrowService borrowService;
 	
 	@EventHandler
 	public void on(BorrowCreatedEvent event) {
@@ -42,9 +44,9 @@ public class BorrowingEventsHandler {
 		model.setReturnDate(event.getReturnDate());
 		borrowRepository.save(model);
 	}
-//	@EventHandler
-//	public void on(BorrowSendMessageEvent event) {
-//		Message message = new Message(event.getEmployeeId(), event.getMessage());
-//		borrowService.sendMessage(message);
-//	}
+	@EventHandler
+	public void on(BorrowSendMessageEvent event) {
+		Message message = new Message(event.getEmployeeId(), event.getMessage());
+		borrowService.sendMessage(message);
+	}
 }

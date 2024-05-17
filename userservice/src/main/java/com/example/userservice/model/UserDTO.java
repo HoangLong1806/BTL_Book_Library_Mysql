@@ -1,5 +1,7 @@
 package com.example.userservice.model;
 
+import com.example.userservice.data.User;
+
 public class UserDTO {
 	private Long id;
 	private String username;
@@ -54,6 +56,11 @@ public class UserDTO {
 
 	public void setToken(String token) {
 		this.token = token;
+	}
+
+	public static User toEntity(UserDTO dto) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

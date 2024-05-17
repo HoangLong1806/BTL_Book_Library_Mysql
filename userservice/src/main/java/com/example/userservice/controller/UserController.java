@@ -35,6 +35,7 @@ public class UserController {
 	
 	@PostMapping("/login")
 	public UserDTO login(@RequestBody UserDTO dto) {
+		userService.saveUser(UserDTO.toEntity(dto));
 		return userService.login(dto.getUsername(), dto.getPassword());
 	}
 	

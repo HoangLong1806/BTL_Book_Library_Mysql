@@ -47,9 +47,9 @@ public class AuthFilter extends AbstractGatewayFilterFactory<AuthFilter.Config> 
       	      header("X-auth-username", username).
       	      build();
       	      return chain.filter(exchange.mutate().request(request).build());
-        
+      	      
                
-        
+      	      
 		  };
 	}
 	

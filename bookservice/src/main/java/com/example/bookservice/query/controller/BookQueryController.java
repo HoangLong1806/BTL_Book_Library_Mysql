@@ -14,6 +14,8 @@ import com.example.bookservice.query.model.BookResponseModel;
 import com.example.bookservice.query.queries.GetAllBooksQuery;
 import com.example.bookservice.query.queries.GetBookQuery;
 
+import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
+
 @RestController
 @RequestMapping("/api/v1/books")
 public class BookQueryController {
@@ -31,6 +33,7 @@ public class BookQueryController {
 		return bookResponseModel;
 	}
 	@GetMapping
+	 @RateLimiter(name = "squareLimit")
 	public List<BookResponseModel> getAllBooks(){
 		GetAllBooksQuery getAllBooksQuery = new GetAllBooksQuery();
 		List<BookResponseModel> list = queryGateway.query(getAllBooksQuery, ResponseTypes.multipleInstancesOf(BookResponseModel.class))
