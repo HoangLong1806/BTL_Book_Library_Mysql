@@ -19,6 +19,7 @@ import com.example.employeeservice.query.model.EmployeeReponseModel;
 import com.example.employeeservice.query.queries.GetAllEmployeeQuery;
 import com.example.employeeservice.query.queries.GetEmployeesQuery;
 
+
 @RestController
 @RequestMapping("/api/v1/employees")
 public class EmployeeQueryController {

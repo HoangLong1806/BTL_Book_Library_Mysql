@@ -3,6 +3,7 @@ package com.example.userservice.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,6 +25,7 @@ public class UserController {
 	UserService userService;
 	
 	@GetMapping("/listUser")
+	@Cacheable(cacheNames = "cache1", key = "'listUser'")
 	public List<User> getAllUser() {
 		return userService.getAllUser();
 	}
